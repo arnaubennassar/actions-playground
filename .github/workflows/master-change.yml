@@ -3,23 +3,13 @@ name: Master change
 on:
   push:
     branches: [ master ]
+    paths:
+    - README.md
 
 jobs:
-    build:
+    mustrun:
         name: Check changes
         runs-on: ubuntu-latest
         steps:
-    
-        - uses: actions/checkout@v2
-        - run: git fetch --depth=1 origin master +refs/tags/*:refs/tags/*
-
         - name: Check if must run
-          id: check
-          run: |
-            git diff origin/master -- README.md > changes
-            if [ -s changes ]; then
-                echo ::set-output name=shouldRun::yes
-                echo "The README code has changed. The test will be executed."
-            else
-                echo "The README code has NOT changed. The test will NOT be executed."
-            fi
+          run: echo "README.md has changed"

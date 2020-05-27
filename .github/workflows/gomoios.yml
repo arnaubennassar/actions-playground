@@ -19,15 +19,15 @@ jobs:
           go-version: 1.14
 
       - name: Install gomobile
-        run: go get golang.org/x/mobile/cmd/gomobile
+        run: $GOROOT/go get golang.org/x/mobile/cmd/gomobile
 
       - name: Bind to iOS
         run: |
           cd foogo
-          ls -l /Users/runner/hostedtoolcache/go/1.14.3/x64/bin
-          /Users/runner/go/bin/gomobile init
+          ls -l $GOROOT/bin
+          $GOROOT/bin/gomobile init
           echo "initialized"
-          ls -l /Users/runner/hostedtoolcache/go/1.14.3/x64/bin
-          /Users/runner/go/bin/gomobile bind --target ios -v
+          ls -l $GOROOT/bin
+          $GOROOT/bin/gomobile bind --target ios -v
           ls -l
           echo "DONE :D" 

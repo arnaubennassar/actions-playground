@@ -28,9 +28,6 @@ jobs:
       - name: Bind to iOS
         run: |
           cd foogo
-          /Users/runner/go/bin/gomobile init
-          echo $?
-          echo "initialized"
-          /Users/runner/go/bin/gomobile bind --target ios -v
+          /Users/runner/go/bin/gomobile bind --target ios -v || (/Users/runner/go/bin/gomobile init && /Users/runner/go/bin/gomobile bind --target ios -v)
           ls -l
           echo "DONE :D" 

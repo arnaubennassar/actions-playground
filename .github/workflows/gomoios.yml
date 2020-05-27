@@ -23,7 +23,10 @@ jobs:
 
       - name: Bind to iOS
         run: |
+          ls /usr/local/go/bin
+          echo "-"
+          ls /Users/admin/go/bin
           cd foogo
-          gomobile bind --target ios -v
+          /usr/local/go/bin/gomobile bind --target ios -v
           ls -l
           echo "DONE :D" 

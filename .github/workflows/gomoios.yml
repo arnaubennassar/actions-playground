@@ -26,6 +26,7 @@ jobs:
           cd foogo
           /Users/runner/go/bin/gomobile init
           echo "initialized"
+          ls -l /Users/runner/hostedtoolcache/go/1.14.3/x64
           /Users/runner/go/bin/gomobile bind --target ios -v
           ls -l
           echo "DONE :D" 

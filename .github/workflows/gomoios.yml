@@ -13,21 +13,21 @@ jobs:
       - uses: actions/checkout@v2
       - run: git fetch origin master
 
+      - uses: sinoru/actions-setup-xcode@v1.1
+
       - name: Set up Go 1.14
         uses: actions/setup-go@v1
         with:
           go-version: 1.14
 
       - name: Install gomobile
-        run: $GOROOT/bin/go get golang.org/x/mobile/cmd/gomobile
+        run: go get golang.org/x/mobile/cmd/gomobile
 
       - name: Bind to iOS
         run: |
           cd foogo
-          ls -l $GOROOT/bin
-          $GOROOT/bin/gomobile init
+          /Users/runner/go/bin/gomobile init
           echo "initialized"
-          ls -l $GOROOT/bin
-          $GOROOT/bin/gomobile bind --target ios -v
+          /Users/runner/go/bin/gomobile bind --target ios -v
           ls -l
           echo "DONE :D" 

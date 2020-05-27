@@ -25,6 +25,7 @@ jobs:
         run: |
           cd foogo
           /Users/runner/go/bin/gomobile init
+          echo "initialized"
           /Users/runner/go/bin/gomobile bind --target ios -v
           ls -l
           echo "DONE :D" 

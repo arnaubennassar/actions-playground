@@ -23,14 +23,14 @@ jobs:
           go-version: 1.14
 
       - name: Install gomobile
-        run: |
-          GO111MODULE=off go get golang.org/x/mobile/cmd/gobind
-          GO111MODULE=off go get golang.org/x/mobile/cmd/gomobile
+        run: go get golang.org/x/mobile/cmd/gomobile
 
       - name: Bind to iOS
         run: |
           cd foogo
           GOMO=/Users/runner/go/bin/gomobile
-          $GOMO init && $GOMO bind --target ios -v
+          $GOMO init
+          $GOMO version
+          $GOMO bind --target ios -v
           ls -l
           echo "DONE :D" 

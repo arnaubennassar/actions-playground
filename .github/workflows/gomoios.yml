@@ -26,8 +26,9 @@ jobs:
           export PATH
           gomobile init
           gomobile version
-          gomobile bind --target ios -v
-          ls -l
+          mkdir -p /tmp/build
+          gomobile bind --target ios -o /tmp/build/Iden3mobile.framework
+          ls -l /tmp/build
           echo "DONE :D" 
 
 

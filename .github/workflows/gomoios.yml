@@ -13,10 +13,6 @@ jobs:
       - uses: actions/checkout@v2
       - run: git fetch origin master
 
-      - uses: maxim-lobanov/setup-xcode@1.0
-        with:
-          xcode-version: latest
-
       - name: Set up Go 1.14
         uses: actions/setup-go@v1
         with:
@@ -33,20 +29,6 @@ jobs:
           gomobile bind --target ios -v
           ls -l
           echo "DONE :D" 
-      - name: Build
-        id: build
-        run: |
-          mkdir -p /tmp/builds
-          docker pull ed255/gomobile-android:API29-noemu
-          docker run \
-            --mount type=bind,source=$PWD,target=/root/iden3-mobile,readonly \
-            --mount type=bind,source=/tmp/builds,target=/builds \
-              ed255/gomobile-android:API29-noemu \
-              /bin/bash -c 'set -ex && \
-                cd /root/iden3-mobile/foogo && \
-                mkdir /tmp/build && \
-                gomobile bind --target android -o /tmp/build/iden3mobile.aar && \
-                mv /tmp/build /builds/out'
-          ls -l /tmp/builds/out
+
 
             

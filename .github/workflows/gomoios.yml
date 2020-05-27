@@ -24,12 +24,13 @@ jobs:
 
       - name: Bind to iOS
         run: |
-          GO111MODULE=off go get golang.org/x/mobile/cmd/gomobile
+          go get golang.org/x/mobile/cmd/gomobile
           cd foogo
-          GOMO=/Users/runner/go/bin/gomobile
-          $GOMO init
-          $GOMO version
-          $GOMO bind --target ios -v
+          PATH=$PATH:/Users/runner/go/bin
+          export PATH
+          gomobile init
+          gomobile version
+          gomobile bind --target ios -v
           ls -l
           echo "DONE :D" 
           

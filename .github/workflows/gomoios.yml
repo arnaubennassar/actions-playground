@@ -23,10 +23,8 @@ jobs:
 
       - name: Bind to iOS
         run: |
-          ls /Users/runner
-          ls /Users/runner/go
-          ls /Users/runner/go/bin
           cd foogo
+          /Users/runner/go/bin/gomobile init
           /Users/runner/go/bin/gomobile bind --target ios -v
           ls -l
           echo "DONE :D" 
